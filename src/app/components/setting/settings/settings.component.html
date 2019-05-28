@@ -1,0 +1,128 @@
+<div class="card mx-auto">
+  <div class="card-body">
+    <div fxLayout="row">
+      <div *ngIf="isLoading">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border text-success" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="filtersLoaded | async" fxFlex="100%">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <input type="hidden" name="id" formControlName="id">
+          <div class="container mt-2">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+              <li class="nav-item tabs">
+                <a class="nav-link active" data-toggle="tab" href="#profile">Profile Setting</a>
+              </li>
+              <li class="nav-item tabs">
+                <a class="nav-link" data-toggle="tab" href="#password">Change Password</a>
+              </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div id="profile" class="container tab-pane active"><br>
+
+
+
+                <div fxLayout="row">
+                  <div class="form-group" fxFlex="45%">
+                    <input type="text" class="form-control form-control-md" formControlName="firstName" placeholder="First Name">
+                    <div *ngIf="isFieldInvalid('firstName')" class="error-message">
+                      Please enter first name
+                    </div>
+                  </div>
+                  <div fxFlex="10%"></div>
+                  <div class="form-group" fxFlex="45%">
+                    <input type="text" class="form-control form-control-md" formControlName="lastName" placeholder="Last Name">
+                    <div *ngIf="isFieldInvalid('lastName')" class="error-message">
+                      Please enter last name
+                    </div>
+                  </div>
+                </div>
+
+                <div fxLayout="row">
+                  <div class="form-group" fxFlex="45%">
+                    <input type="date" class="form-control form-control-md" formControlName="dob" id="today"
+                      placeholder="Date Of Birth" value="getDob()">
+                    <div *ngIf="isFieldInvalid('dob')" class="error-message">
+                      Select date of birth
+                    </div>
+                  </div>
+                  <div fxFlex="10%"></div>
+                  <div class="form-group" fxFlex="45%">
+                    <input type="text" class="form-control form-control-md" formControlName="email" placeholder="Email">
+                  </div>
+                </div>
+
+                <div fxLayout="row">
+                  <div class="form-group" fxFlex="45%">
+                    <input type="text" class="form-control form-control-md" formControlName="class" placeholder="class">
+                  </div>
+                  <div fxFlex="10%"></div>
+                  <div class="form-group" fxFlex="45%">
+                    <input type="text" class="form-control form-control-md" formControlName="section" placeholder="section">
+                  </div>
+                </div>
+
+                <div fxLayout="row">
+                  <div class="form-group" fxFlex="45%">
+                    <input type="text" class="form-control form-control-md" formControlName="phone" placeholder="Phone">
+                    <div *ngIf="isFieldInvalid('phone')" class="error-message">
+                      Please enter phone
+                    </div>
+                  </div>
+                  <div fxFlex="10%"></div>
+                  <div class="form-group" fxFlex="45%">
+                    <select class="form-control form-control-md" formControlName="city" placeholder="City">
+                      <option *ngFor="let city of cities" value={{city}}>{{city}}</option>
+                    </select>
+                    <div *ngIf="isFieldInvalid('city')" class="error-message">
+                      Please select city
+                    </div>
+                  </div>
+                </div>
+
+                <div fxLayout="row">
+                  <div class="form-group" fxFlex="45%">
+                    <input type="text" class="form-control form-control-md" formControlName="regNo" placeholder="Registration Number">
+                  </div>
+                </div>
+
+                <button type="button" class="btn btn-success" (click)="onSubmit()"> SAVE</button>
+
+              </div>
+
+              <div id="password" class="container tab-pane fade"><br>
+                <div fxLayout="row">
+                  <div class="form-group" fxFlex="50%">
+                    <input type="password" class="form-control form-control-md" formControlName="password" placeholder="New Password">
+                    <div *ngIf="isFieldInvalid('password')" class="error-message">
+                      Password should contain minimum 8 characters
+                    </div>
+                  </div>
+                </div>
+                <div fxLayout="row">
+                  <div class="form-group" fxFlex="50%">
+                    <input type="password" class="form-control form-control-md" formControlName="confirmPassword"
+                      placeholder="Confirm Password">
+                    <div *ngIf="isFieldInvalid('confirmPassword')" class="error-message">
+                      Confirm assword should contain minimum 8 characters
+                    </div>
+                  </div>
+                </div>
+
+                <button type="button" [disabled]="!form.valid" class="btn btn-success" (click)="changePassword()"> SAVE</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

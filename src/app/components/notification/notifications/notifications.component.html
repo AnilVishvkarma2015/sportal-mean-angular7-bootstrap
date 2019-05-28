@@ -1,0 +1,24 @@
+<div class="bt layout mx-auto">
+  <div *ngIf="(isAdmin)">
+    <button class="btn btn-success" type="submit" (click)="onNewNotice()">New Notice</button>
+  </div>
+
+  <div *ngIf="isLoading">
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let notice of notices">
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <div class="notice" style="font-size: 13px;">{{ notice.category }} </div> <br>
+        <div class="notice" style="font-size: 12px;">{{ notice.notice }} </div><br>
+        <div class="notice" style="font-size: 13px;">{{ notice.createdDate }} </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+  .card {
+    max-width: 800px;
+    height: 550px;
+    margin: 150px auto auto auto;
+  }
+
+  .card-title {
+    font-family: 'Passion One', cursive;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  button {
+      margin-top: 20px;
+  }

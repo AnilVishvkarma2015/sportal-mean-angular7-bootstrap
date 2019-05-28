@@ -1,0 +1,15 @@
+.layout {
+    min-height: 620px;
+    overflow-y: auto;
+    max-width: 90%;
+}
+
+.notice {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-weight: bold;
+}
+
+.bt {
+    max-width: 90%;
+    margin-top: 100px;
+}

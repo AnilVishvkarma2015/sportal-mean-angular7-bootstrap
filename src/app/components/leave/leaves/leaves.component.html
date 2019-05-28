@@ -1,0 +1,38 @@
+<div class="bt mx-auto">
+  <button class="btn btn-success" type="submit" (click)="onApplyLeave()">New Leave</button>
+</div>
+
+<div *ngIf="isLoading">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
+
+<table class="table layout mx-auto">
+  <thead>
+    <tr>
+      <th scope="col">Reason</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Days</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let leave of leaves">
+      <td>{{leave.reason}}</td>
+      <td>{{leave.startDate}}</td>
+      <td>{{leave.endDate}}</td>
+      <td>{{leave.days}}</td>
+      <td>{{leave.status}}</td>
+      <td> <a (click)="onEditLeave(leave)">
+          <i class="fa fa-pencil-square-o"></i>
+        </a><a (click)="onDeleteLeave(leave)">
+          <i class="fa fa-trash-o" style="margin-left: 8px;"></i>
+        </a></td>
+    </tr>
+  </tbody>
+</table>

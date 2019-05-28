@@ -1,0 +1,24 @@
+<div class="card mx-auto">
+  <div class="card-body">
+    <h5 class="card-title">Create Notice</h5>
+    <hr>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <select class="form-control form-control-md" formControlName="category" placeholder="Category">
+          <option selected> Select Category </option>
+          <option *ngFor="let category of categories">{{category}}</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <input type="text" class="form-control form-control-md" formControlName="notice" placeholder="Notice">
+        <div *ngIf="isFieldInvalid('notice')" class="error-message">
+          Please write notice
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!form.valid" class="btn btn-success float-right">POST</button>
+    </form>
+  </div>
+</div>

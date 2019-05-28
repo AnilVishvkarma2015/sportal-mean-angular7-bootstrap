@@ -1,0 +1,62 @@
+<div class="card mx-auto">
+  <div class="card-body">
+    <h5 class="card-title">{{formType}}</h5>
+    <hr>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input type="hidden" name="id" formControlName="id">
+
+      <div fxLayout="row">
+        <div class="form-group" fxFlex="45%">
+          <input type="text" class="form-control form-control-md" formControlName="regNo" readonly>
+        </div>
+        <div fxFlex="10%"></div>
+        <div class="form-group" fxFlex="45%">
+          <select class="form-control form-control-md" formControlName="reason" placeholder="Reason">
+            <option value="" selected disabled>Please select</option>
+            <option *ngFor="let reason of reasons" value={{reason}}>{{reason}}</option>
+          </select>
+          <div *ngIf="isFieldInvalid('reason')" class="error-message">
+            Please Select reason
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div class="form-group" fxFlex="45%">
+          <input type="date" class="form-control form-control-md" formControlName="startDate" placeholder="Start Date">
+          <div *ngIf="isFieldInvalid('startDate')" class="error-message">
+            Select start date
+          </div>
+        </div>
+        <div fxFlex="10%"></div>
+        <div class="form-group" fxFlex="45%">
+          <input type="date" class="form-control form-control-md" formControlName="endDate" placeholder="End Date">
+          <div *ngIf="isFieldInvalid('endDate')" class="error-message">
+            Select end date
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div class="form-group" fxFlex="45%">
+          <input type="text" class="form-control form-control-md" formControlName="days" placeholder="Leave Days">
+          <div *ngIf="isFieldInvalid('days')" class="error-message">
+            Please enter leave days
+          </div>
+        </div>
+        <div fxFlex="10%"></div>
+        <div class="form-group" fxFlex="45%">
+          <select class="form-control form-control-md" formControlName="status">
+            <option value="" selected disabled>Please select</option>
+            <option *ngFor="let status of statuses" value={{status}}>{{status}}</option>
+          </select>
+          <div *ngIf="isFieldInvalid('status')" class="error-message">
+            Please select status
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!form.valid" class="btn btn-success">SUBMIT</button>
+    </form>
+  </div>
+</div>

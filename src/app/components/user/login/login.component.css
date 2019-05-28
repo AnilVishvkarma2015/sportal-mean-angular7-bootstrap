@@ -1,0 +1,12 @@
+.card {
+    margin-top: 200px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 4px;
+}
+
+.card-title {
+    font-family: 'Passion One', cursive;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 25px;
+}

@@ -1,0 +1,38 @@
+<div class="bt mx-auto">
+  <button class="btn btn-success" type="submit" (click)="onEnrollNewStudent()">Enroll</button>
+</div>
+
+<div *ngIf="isLoading">
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
+
+<table class="table layout mx-auto">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Reg. No</th>
+      <th scope="col">Class</th>
+      <th scope="col">Section</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.firstName}} {{user.lastName}}</td>
+      <td>{{user.regNo}}</td>
+      <td>{{user.class}}</td>
+      <td>{{user.section}}</td>
+      <td>{{user.phone}}</td>
+      <td> <a (click)="onEditStudent(user)">
+          <i class="fa fa-pencil-square-o"></i>
+        </a><a (click)="onDeleteStudent(user)">
+          <i class="fa fa-trash-o" style="margin-left: 8px;"></i>
+        </a></td>
+    </tr>
+  </tbody>
+</table>

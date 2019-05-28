@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~ngx-toastr/toastr.css';
+@import '~font-awesome/css/font-awesome.css';
+@import url('https://fonts.googleapis.com/css?family=Hind+Siliguri');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Patua+One');
+@import url('https://fonts.googleapis.com/css?family=Passion+One');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Passion+One&display=swap');
+
+
+body {
+    background-color: #F0F8FF;
+    height: 100%;
+    min-height:6em; background-size:cover;
+}
+
+.error-message {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    color: #f44336;
+    font-size: 70%;
+    padding: 10px 2px;
+}
+
+hr {
+    border: 0;
+    height: 3px;
+    margin-top: -15px;
+    margin-bottom: 35px;
+    background-image: linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,.75),rgba(0,0,0,0));
+}
+
+.container {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.form-control {
+    font-size: 0.8rem;
+    border-radius: 0px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.btn-success {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}

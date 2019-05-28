@@ -1,0 +1,98 @@
+<div class="card mx-auto">
+  <div class="card-body">
+    <h5 class="card-title">{{formType}}</h5>
+    <hr>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <input type="hidden" name="id" formControlName="id">
+
+      <div fxLayout="row">
+        <div class="form-group" fxFlex="45%">
+          <input type="text" class="form-control form-control-md" formControlName="regNo" placeholder="Registration Number">
+          <div *ngIf="isFieldInvalid('regNo')" class="error-message">
+            Please enter registration no
+          </div>
+        </div>
+        <div fxFlex="10%"></div>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="isActive">
+          <label class="custom-control-label" for="customSwitch1">Is Account Active</label>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div class="form-group" fxFlex="45%">
+          <input type="text" class="form-control form-control-md" formControlName="firstName" placeholder="First Name">
+          <div *ngIf="isFieldInvalid('firstName')" class="error-message">
+            Please enter first name
+          </div>
+        </div>
+        <div fxFlex="10%"></div>
+        <div class="form-group" fxFlex="45%">
+          <input type="text" class="form-control form-control-md" formControlName="lastName" placeholder="Last Name">
+          <div *ngIf="isFieldInvalid('lastName')" class="error-message">
+            Please enter last name
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div class="form-group" fxFlex="45%">
+          <input type="date" class="form-control form-control-md" formControlName="dob" placeholder="Date Of Birth">
+          <div *ngIf="isFieldInvalid('dob')" class="error-message">
+            Select date of birth
+          </div>
+        </div>
+        <div fxFlex="10%"></div>
+        <div class="form-group" fxFlex="45%">
+          <input type="text" class="form-control form-control-md" formControlName="email" placeholder="Email">
+          <div *ngIf="isFieldInvalid('email')" class="error-message">
+            Please enter email
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div class="form-group" fxFlex="45%">
+          <select class="form-control form-control-md" formControlName="class" placeholder="Class">
+            <option value="" selected disabled>Please select</option>
+            <option *ngFor="let class of classes" value={{class}}>{{class}}</option>
+          </select>
+          <div *ngIf="isFieldInvalid('class')" class="error-message">
+            Please Select class
+          </div>
+        </div>
+        <div fxFlex="10%"></div>
+        <div class="form-group" fxFlex="45%">
+          <select class="form-control form-control-md" formControlName="section" value="Section">
+            <option value="" selected disabled>Please select</option>
+            <option *ngFor="let section of sections" value={{section}}>{{section}}</option>
+          </select>
+          <div *ngIf="isFieldInvalid('section')" class="error-message">
+            Please select section
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row">
+        <div class="form-group" fxFlex="45%">
+          <input type="text" class="form-control form-control-md" formControlName="phone" placeholder="Phone">
+          <div *ngIf="isFieldInvalid('phone')" class="error-message">
+            Please enter phone
+          </div>
+        </div>
+        <div fxFlex="10%"></div>
+        <div class="form-group" fxFlex="45%">
+          <select class="form-control form-control-md" formControlName="city" placeholder="City">
+            <option value="" selected disabled>Please select</option>
+            <option *ngFor="let city of cities" value={{city}}>{{city}}</option>
+          </select>
+          <div *ngIf="isFieldInvalid('city')" class="error-message">
+            Please select city
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!form.valid" class="btn btn-success">SUBMIT</button>
+    </form>
+  </div>
+</div>

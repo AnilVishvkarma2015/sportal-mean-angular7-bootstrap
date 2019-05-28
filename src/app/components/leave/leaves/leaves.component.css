@@ -1,0 +1,17 @@
+.layout {
+    overflow-y: auto;
+    max-width: 90%;
+    background: white;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.table th, .table td {
+    font-size: 0.8rem;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.bt {
+    max-width: 90%;
+    margin-top: 100px;
+}
